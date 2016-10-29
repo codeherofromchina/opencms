@@ -22,6 +22,10 @@ public class Role implements Serializable{
 	 */
 	private String roleName;
 	/**
+	 * 角色编码
+	 */
+	private String roleCode;
+	/**
 	 * 角色职能描述
 	 */
 	private String roleDesc;
@@ -37,6 +41,14 @@ public class Role implements Serializable{
 	}
 	public void setRoleName(String roleName) {
 		this.roleName = roleName;
+	}
+	
+	public String getRoleCode() {
+		return roleCode;
+	}
+	
+	public void setRoleCode(String roleCode) {
+		this.roleCode = roleCode;
 	}
 	public String getRoleDesc() {
 		return roleDesc;

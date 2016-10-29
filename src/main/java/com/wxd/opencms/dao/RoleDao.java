@@ -17,4 +17,25 @@ public interface RoleDao {
 	 * @return
 	 */
 	public List<Role> findAllRoles();
+	
+	
+	/*public Role findById(int id);
+	
+	*//**
+	 * 通过管理员id查找管理员所单独关联的角色
+	 * @author wangXiaodan
+	 * @param adminId
+	 * @return
+	 *//*
+	public List<Role> findByAdminid(int adminId);
+	
+	public List<Role> findByAdmingroupid(int adminGroupId);
+	
+	*//**
+	 * 查询管理员下的所有角色，包括此管理员所在群组的角色
+	 * @author wangXiaodan
+	 * @param adminId
+	 * @return
+	 *//*
+	public List<Role> findAllRolesByAdminid(int adminId);*/
 }
