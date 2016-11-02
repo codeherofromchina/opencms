@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wxd.opencms.dao.AdminDao">
-	<resultMap id="AdminResultMap" type="admin">
+	<resultMap id="BaseResultMap" type="admin">
 		<id column="ID" property="id" jdbcType="INTEGER" />
 		<result column="MOBILE" property="mobile" jdbcType="VARCHAR" />
 		<result column="EMAIL" property="email" jdbcType="VARCHAR" />
@@ -17,7 +17,7 @@
 		SUPER_ADMIN
 	</sql>
 
-	<select id="findByGroupid" resultMap="AdminResultMap" parameterType="java.lang.Integer">
+	<select id="findByGroupid" resultMap="BaseResultMap" parameterType="java.lang.Integer">
 		select
 		t1.ID, t1.MOBILE, t1.EMAIL, t1.PASSWORD,
 		t1.NICKNAME, t1.TRUENAME,
@@ -27,17 +27,17 @@
 		where t1.id = t3.admin_id and
 		t2.id = t3.group_id and t2.id = #{groupId}
 	</select>
-	<select id="findByMobile" resultMap="AdminResultMap" parameterType="java.lang.String">
+	<select id="findByMobile" resultMap="BaseResultMap" parameterType="java.lang.String">
 		select
 		<include refid="Base_Column_List" />
 		from ADMIN where mobile = #{mobile}
 	</select>
-	<select id="findByEmail" resultMap="AdminResultMap" parameterType="java.lang.String">
+	<select id="findByEmail" resultMap="BaseResultMap" parameterType="java.lang.String">
 		select
 		<include refid="Base_Column_List" />
 		from ADMIN where EMAIL = #{email}
 	</select>
-	<select id="findById" resultMap="AdminResultMap" parameterType="java.lang.Integer">
+	<select id="findById" resultMap="BaseResultMap" parameterType="java.lang.Integer">
 		select
 			<include refid="Base_Column_List" />
 		from ADMIN where id = #{id,jdbcType=INTEGER}
@@ -73,8 +73,5 @@
 	
 	<delete id="deleteById" parameterType="java.lang.Integer" >
 		delete from admin where ID = #{id,jdbcType=INTEGER}
-	</delete>
-	<delete id="removeRoleByRoleid" parameterType="java.lang.Integer" >
-		delete from role_admin_middle where role_id = #{roleId,jdbcType=INTEGER} and admin_id = #{adminId,jdbcType=INTEGER}
 	</delete>
 </mapper>

@@ -11,7 +11,7 @@ import com.wxd.opencms.pojo.Resources;
  * @author wangXiaodan
  */
 public interface ResourcesDao {
-	/*public List<Resources> findByRoleid(int roleId);
+	public List<Resources> findByRoleid(int roleId);
 	
-	public List<Resources> findByPath(String path);*/
+	public List<Resources> findByPath(String path);
 }

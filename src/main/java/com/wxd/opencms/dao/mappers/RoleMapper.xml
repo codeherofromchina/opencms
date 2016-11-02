@@ -2,12 +2,27 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wxd.opencms.dao.RoleDao">
-	<resultMap type="role" id="roleResultMap">
-		<id column="id" property="id" />
-		<result column="role_name" property="roleName" />
-		<result column="role_desc" property="roleDesc" />
+	<resultMap id="BaseResultMap" type="com.wxd.opencms.pojo.Role">
+		<id column="ID" property="id" jdbcType="INTEGER" />
+		<result column="ROLE_NAME" property="roleName" jdbcType="VARCHAR" />
+		<result column="ROLE_CODE" property="roleCode" jdbcType="VARCHAR" />
+		<result column="ROLE_DESC" property="roleDesc" jdbcType="VARCHAR" />
 	</resultMap>
-	<select id="findAllRoles" resultMap="roleResultMap">
-		SELECT * FROM ROLE
+	<sql id="Base_Column_List">
+		t1.ID, t1.ROLE_NAME, t1.ROLE_CODE, t1.ROLE_DESC
+	</sql>
+	<select id="findAllRoles" resultMap="BaseResultMap">
+		SELECT <include refid="Base_Column_List" /> FROM ROLE t1
+	</select>
+	<select id="findById" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+		SELECT <include refid="Base_Column_List" /> FROM ROLE t1
+		WHERE id = #{id}
+	</select>
+	<select id="findByAdmingroupid" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+		SELECT <include refid="Base_Column_List" /> FROM ROLE t1,role_admin_group_middle t2 where t1.ID = t2.ROLE_ID and t2.GROUP_ID = #{groupId}
+	</select>
+	<select id="findByAdminid" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+		SELECT <include refid="Base_Column_List" /> FROM ROLE t1,role_admin_group_middle t2,admin_group_middle t3 
+		where t1.ID = t2.ROLE_ID and t2.GROUP_ID = t3.GROUP_ID and t3.ADMIN_ID = #{adminID}
 	</select>
 </mapper>

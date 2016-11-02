@@ -110,15 +110,6 @@ public class AdminDaoTest extends BaseJunit4Test{
 		assertTrue(lockFlag == admin.isLocked()); // 来回相等
 	}
 
-	/**
-	 * TODO
-	 * @author wangXiaodan
-	 */
-	@Test
-	public void test4RemoveRoleByRoleid() {
-		int removeNum = adminDao.removeRoleByRoleid(1, 1);
-		assertEquals(removeNum, 0);
-	}
 	
 	@Test
 	public void test5DeleteById() {

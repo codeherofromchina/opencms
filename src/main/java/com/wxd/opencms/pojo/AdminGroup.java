@@ -5,14 +5,14 @@ import java.io.Serializable;
 public class AdminGroup implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
-	private int id;
+	private Integer id;
 	private String groupName;
 	private String groupDesc;
-	private int sort;
-	public int getId() {
+	private Integer sort;
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getGroupName() {
@@ -27,11 +27,10 @@ public class AdminGroup implements Serializable{
 	public void setGroupDesc(String groupDesc) {
 		this.groupDesc = groupDesc;
 	}
-	
-	public int getSort() {
+	public Integer getSort() {
 		return sort;
 	}
-	public void setSort(int sort) {
+	public void setSort(Integer sort) {
 		this.sort = sort;
 	}
 	

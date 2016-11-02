@@ -46,5 +46,4 @@ public interface AdminDao {
 	 */
 	public int deleteById(int id);
 	
-	public int removeRoleByRoleid(@Param("adminId")int adminId,@Param("roleId")int roleId);
 }
